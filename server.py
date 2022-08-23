@@ -8,10 +8,9 @@ def hello_world():
 def success():
     return "Success"
 
-@app.route('/hello/<name>')
-def hello(name):
-    print(name)
-    return "Hello, " + name
+@app.route('/hello/<string:name>/<int:num>')
+def hello(name,num):
+    return render_template('hello.html',name=name,num=num)
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
     app.run(debug=True)    # Run the app in debug mode.
